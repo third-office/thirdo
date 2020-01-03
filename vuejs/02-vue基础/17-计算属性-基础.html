@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--    <ul>-->
+<!--        <li v-for="item in movies">{{item}}</li>-->
+<!--    </ul>-->
+    <h2>{{fullName}}</h2>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'nihaoa',
+            movies: ['huoyin','daomeng','longzhu','sisheng'],
+            name: 'world'
+        },
+        computed: {
+            // fullName: function () {
+            //     return this.message + ' ' + this.name
+            // }
+
+            fullName: {
+                //一般没有set方法
+                // set: function () {
+                //
+                // },
+                get: function () {
+                    return this.message + ' ' + this.name
+                }
+            }
+        },
+        methods: {
+        }
+    })
+</script>
+</body>
+</html>

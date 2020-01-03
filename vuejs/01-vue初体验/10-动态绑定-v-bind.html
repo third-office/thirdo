@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="item in movies">{{item}}</li>
+    </ul>
+    <h2>{{message}}</h2>
+    <img v-bind:src="imgURL" alt="">
+    <a :href="aHref">百度一下</a>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: 'nihaoa',
+            movies: ['huoyin','daomeng','longzhu','sisheng'],
+            imgURL: 'https://7nsts.w3cschool.cn/images/w3c/header-logo.png',
+            aHref: 'http://www.baidu.com',
+        }
+    })
+</script>
+</body>
+</html>

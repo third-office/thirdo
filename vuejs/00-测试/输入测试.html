@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+    <title>Title</title>
+    <script type="text/javascript">
+        function writeIt(value) {
+            document.myfm.first_text.value = value;
+        }
+    </script>
+</head>
+<body bgcolor="red">
+    <form name="myfm">
+        <input type="text" name="first_text">
+        <input type="text" name="second_text" onchange="writeIt(value)">
+    </form>
+</body>
+</html>
