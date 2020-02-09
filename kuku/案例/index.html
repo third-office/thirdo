@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <title>鼠标滑过效果</title>
+    <!--  import css --> 
+
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box{
+        /* CSS3 新盒子模型：控制width/height是盒子最终的宽高*/
+        box-sizing: border-box;
+        /* 盒子的外部位置 */
+        margin: 20px auto;
+        
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid lightblue;
+
+        position: relative;
+    }
+
+    .box .detail{
+        /* 公共样式 */
+        box-sizing: border-box;
+        width: 500px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        border: 1px solid lightblue;
+
+        position: absolute;
+        right: -1px;
+        top: 38px;
+        display: none;
+        /* 层级调低 */
+        z-index: -1;
+    }
+
+    .box:hover {
+        border-bottom-color: #fff;
+        
+    }
+
+    .box:hover .detail{
+        display: block;
+
+    }
+
+    /* 如果是点击实现显示，可以基于：terget实现手风琴效果 */
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span>购物车</span>
+        <div class="detail">
+            购物车详情
+        </div>
+    </div>
+</body>
+</html>

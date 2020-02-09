@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    <title>鼠标点击效果</title>
+    <!--  import css --> 
+
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box{
+        /* CSS3 新盒子模型：控制width/height是盒子最终的宽高*/
+        box-sizing: border-box;
+        /* 盒子的外部位置 */
+        margin: 20px auto;
+        
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid lightblue;
+
+        position: relative;
+        /* 改变鼠标形状：pointer小手 */
+        cursor: pointer;
+    }
+
+    .box .detail{
+        /* 公共样式 */
+        box-sizing: border-box;
+        width: 500px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        border: 1px solid lightblue;
+
+        position: absolute;
+        right: -1px;
+        top: 38px;
+        display: none;
+        /* 层级调低 */
+        z-index: -1;
+    }
+
+    
+
+    /* 如果是点击实现显示，可以基于：terget实现手风琴效果 */
+
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <span>购物车</span>
+        <div class="detail" id="detail" display="none">
+            购物车详情
+        </div>
+    </div>
+    <!-- 传统基于操作DOM的方式实现业务需求
+        1.想操作谁就先获取谁
+        2.给某元素绑定某事件
+        3.在事件触发的时候修改元素的样式等 
+    -->
+    <!-- import js -->
+    <script>
+        /* 获取box：id获取 */
+        // let box = document.getElementById('box');
+        // let detail = document.getElementById('detail');
+
+        
+        
+        /* 事件绑定 :onclick/mouseover/mousedown/keydown*/
+        /* 这种方式是操作的元素行内样式 */
+        box.onclick = function () {
+            //首先获取detail原有的样式，显示还是隐藏：元素.style.xxx就是获取某个样式,所以我们没有把样式写在行内上，用元素.style.xxx的方式无法获取样式
+
+            /* 测试 console.log("haha"); */
+            // detail.style.display = "block"; 
+            // box.style.borderBottomColor = '#fff';
+
+            /* 在行内设置这个样式才能获取到 */
+            let n = detail.style.display;
+            
+            if (n === "none"){
+            detail.style.display = "block";
+            box.style.borderBottomColor = '#fff';
+        } else {
+            detail.style.display = "none";
+            box.style.borderBottomColor = 'lightblue';
+        }
+        }
+
+    </script>
+
+</body>
+</html>

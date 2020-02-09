@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>扩展思考（堆栈）</title>
+    <!-- import css -->
+    <style>
+      #box {
+        box-sizing: border-box;
+
+        width: 200px;
+        height: 200px;
+        border: 3px solid lightblue;
+      }
+      .AA {
+        background: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" id="box"></div>
+    <!-- import JS -->
+    <script>
+      let box = document.getElementById("box"); //box是对象数据类型值，引用数据类型之一，存放于堆中
+      /* 基于console.dir可以查询对象的详细信息 */
+      /* 
+            box对象属性
+            id：操作元素的ID值
+            classname：操作元素的CLASS样式的值
+            innerHTML：操作元素的内容（可以识别标签）
+            innerText：和innerHTML操作相反
+
+            onclick：绑定元素的点击事件
+            tagName：获取元素的标签名（一般大写）
+
+            style：操作元素的行内样式   属性值是一个新的对象（CSSStyleDeclaration）
+
+         */
+      console.dir(box);
+
+      /* 通过className添加样式class名 */
+      // box.className = "AA";
+
+      /* 通过style对象添加行内样式：backgroundColor */
+      // box.style.backgroundColor = "red";
+
+      //占位可用的写法：AA.backgroundColor修改的是堆内存中的值，有效果
+      // let AA = box.style;
+      // AA.backgroundColor = "green";
+
+      //不可占位的写法：修改的不是堆中的信息，不起效果
+      // let BB = box.style.backgroundColor;
+      // BB = "blue";
+    </script>
+  </body>
+</html>

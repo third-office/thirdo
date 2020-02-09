@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>隔行变色</title>
+    <!-- import CSS -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      #newsBox {
+        box-sizing: border-box;
+        margin: 20px auto;
+        padding: 20px;
+        width: 300px;
+        border: 2px solid lightblue;
+      }
+
+      #newsBox li {
+        line-height: 50px;
+        border-bottom: 1px solid lightblue;
+      }
+
+      #newsBox li:nth-last-child(1) {
+        /* 获取li中倒数第一个 */
+        border-bottom: none;
+      }
+
+      /* 基于CSS实现 */
+      /* #newsBox li:nth-last-child(even){
+        background: lightcoral;
+    }
+
+    #newsBox li:hover{
+        background: lightgreen;
+    } */
+    </style>
+  </head>
+  <body>
+    <!-- ul#newsBox>li*5{我是第$个li} -->
+    <ul id="newsBox">
+      <li>我是第1个li</li>
+      <li>我是第2个li</li>
+      <li>我是第3个li</li>
+      <li>我是第4个li</li>
+      <li>我是第5个li</li>
+    </ul>
+
+    <!-- import JS -->
+    <script>
+      let newsBox = document.getElementById("newsBox");
+      /* 在指定的context范围之内，通过标签名获取一组元素集合（元素集合HTMLCollection） */
+      let newsList = newsBox.getElementsByTagName("li");
+
+      /* HTMLCollection集合和数组相似，也是数字索引作为属性名，有length属性储存长度，但不是数组，是类数组 */
+      console.dir(newsList);//详细测试
+
+      /* 循环所以获取的 li，判断是奇数还是偶数行，赋予不同颜色 */
+      for(let i = 0; i < newsList.length; i++){
+        //一轮 i=0 操作第一个li newsList[0]
+        //二轮 i=1 操作第二个li newsList[1]
+        //循环计数i同newsList索引相同，故不用改
+        let curLi = newsList[i];
+        /* i=0 第一个li 奇数行 */
+        /* i=1 第二个li 偶数行 */
+        //偶数判断标准：能被2整除 => n%2
+        if(i%2 === 0){//索引是偶数，代表奇数行
+            curLi.style.background = "lightblue";
+
+        } else {//索引是奇数，代表偶数行
+            curLi.style.background = "lightcoral";
+        }
+
+        /* if改三元运算符 */
+        curLi.style.background = i%2 === 0?'lightblue':'lightcoral';
+
+        /* 循环的时候给每一个li都绑定mouseover/mouseout事件 */
+        curLi.onmouseover = function () {
+            //this当前操作的元素
+            this.style.background = "lightblue";
+        };
+
+        curLi.onmouseout = function () {
+            //思考题：如何在离开时知道原来的背景颜色
+            // let n = this.style.background;
+            // console.log(n);输出测试
+            this.style.background = "lightcoral";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>计算结果</title>
+
+    <!-- import css -->
+    <style>
+      #numInp,
+      #submit {
+        /* 公共样式 */
+        box-sizing: border-box;
+        padding: 0 15px;
+        height: 35px;
+        border: 1px solid lightblue;
+      }
+
+      #submit {
+        /* 鼠标样式 */
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="numInp" />
+    <button id="submit">点击计算</button>
+    <!-- import JS -->
+    <script>
+      let numInp = document.getElementById("numInp");
+      let submit = document.getElementById("submit");
+
+      /* 事件绑定 */
+      submit.onclick = function() {
+        /* 获得文本框中的信息 */
+        let numInpValue = numInp.value;
+        //文本框中获取的字符串格式为String
+        // console.log(typeof numInpValue);输出测试
+        numInpValue = Number(numInpValue); //转化为数字类型
+        // console.log(numInpValue);输出测试
+
+        /* 验证是否为有效数字 */
+        if (!isNaN(numInpValue)) {
+          //isNaN(numInpValue) === false
+          //有效数字
+          if (numInpValue > 0) {
+            console.log("正数");
+          } else if (numInpValue < 0) {
+            console.log("负数");
+          } else {
+            console.log("数字为0");
+          }
+        } else {
+          console.log("当前输出的是非有效数字");
+        }
+      };
+    </script>
+  </body>
+</html>

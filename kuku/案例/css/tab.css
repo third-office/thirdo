@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+#tabBox{
+    box-sizing: border-box;
+    margin: 20px auto;
+    width: 500px;
+    
+}
+
+#navBox{
+    /* 只要把容器设置为flex弹性盒子模型，那么容器中的子元素默认在容器主轴（x轴）水平靠左排列 */
+    display: flex;
+    position: relative;
+    top: 1px;
+}
+
+#navBox li {
+    box-sizing: border-box;
+    margin-right: 10px;
+    padding: 0 10px;
+    line-height: 35px;
+    border: 1px solid lightblue;
+
+    cursor: pointer;
+}
+
+#navBox li.active{
+    border-bottom-color: #ffffff;
+}
+
+#tabBox>div{
+    display: none;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 150px;
+    border: 1px solid lightblue;
+}
+
+#tabBox>div.active {
+    display: block;
+}
