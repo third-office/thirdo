@@ -1,4 +1,2 @@
 # thirdo
-personal code
-关于 web 前端的代码练习合集
-
+前端工程师成长日记
