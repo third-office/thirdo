@@ -1,6 +1,5 @@
 <template>
     <div id="text">{{text}}</div>
-
 </template>
 
 <script>
@@ -13,7 +12,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang= 'css'>
 #text {
     color: red;
 }
